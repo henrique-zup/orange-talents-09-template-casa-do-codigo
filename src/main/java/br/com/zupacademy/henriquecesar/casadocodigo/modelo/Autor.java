@@ -27,15 +27,15 @@ public class Autor {
     @Column(nullable = false)
     private LocalDateTime dataCadastro;
 
-	@Deprecated
-	public Autor() {
-	}
+    @Deprecated
+    public Autor() {
+    }
 
-	public Autor(String nome, String email, String descricao, LocalDateTime dataCadastro) {
-		this.nome = nome;
-		this.email = email;
-		this.descricao = descricao;
-		this.dataCadastro = dataCadastro;
-	}
+    public Autor(String nome, String email, String descricao, LocalDateTime dataCadastro) {
+        this.nome = nome;
+        this.email = email;
+        this.descricao = descricao;
+        this.dataCadastro = dataCadastro;
+    }
 
 }
