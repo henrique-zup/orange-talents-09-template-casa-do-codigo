@@ -6,6 +6,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zupacademy.henriquecesar.casadocodigo.form.validator.ValorUnico;
 import br.com.zupacademy.henriquecesar.casadocodigo.modelo.Autor;
 
 public class AutorForm {
@@ -13,7 +14,8 @@ public class AutorForm {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank @Email
+	@NotBlank @Email 
+	@ValorUnico(entityClass = Autor.class, field = "email")
 	private String email;
 	
 	@Size(max = 400)
