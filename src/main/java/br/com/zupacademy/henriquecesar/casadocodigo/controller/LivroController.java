@@ -38,7 +38,7 @@ public class LivroController {
     @GetMapping
     public List<LivroDTO> listaLivros() {
         List<Livro> livros = livroRepository.findAll();
-        List<LivroDTO> resultado = livros.stream().map(Livro::toDTO).collect(Collectors.toList());
+        List<LivroDTO> resultado = livros.stream().map(LivroDTO::new).collect(Collectors.toList());
         return resultado;
     }
 
