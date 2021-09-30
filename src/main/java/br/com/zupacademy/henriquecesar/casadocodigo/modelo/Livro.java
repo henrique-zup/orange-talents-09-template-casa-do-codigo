@@ -14,10 +14,10 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false, unique = true)
     private String titulo;
-    
+
     @Column(nullable = false)
     private String resumo;
 
@@ -26,21 +26,25 @@ public class Livro {
 
     @Column(nullable = false)
     private Double preco;
-    
+
     @Column(nullable = false)
     private Integer numeroPaginas;
-    
+
     @Column(nullable = false, unique = true)
     private String isbn;
-    
+
     @Column(nullable = false)
     private LocalDateTime dataLancamento;
-    
+
     @ManyToOne
     private Categoria categoria;
-    
+
     @ManyToOne
     private Autor autor;
+
+    @Deprecated
+    public Livro() {
+    }
 
     public Livro(String titulo, String resumo, String sumario, Double preco, Integer numeroPaginas, String isbn,
             LocalDateTime dataLancamento, Categoria categoria, Autor autor) {
