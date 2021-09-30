@@ -9,15 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import br.com.zupacademy.henriquecesar.casadocodigo.dto.LivroDTO;
+
 @Entity
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @Column(nullable = false, unique = true)
     private String titulo;
-
+    
     @Column(nullable = false)
     private String resumo;
 
@@ -26,22 +28,22 @@ public class Livro {
 
     @Column(nullable = false)
     private Double preco;
-
+    
     @Column(nullable = false)
     private Integer numeroPaginas;
-
+    
     @Column(nullable = false, unique = true)
     private String isbn;
-
+    
     @Column(nullable = false)
     private LocalDateTime dataLancamento;
-
+    
     @ManyToOne
     private Categoria categoria;
-
+    
     @ManyToOne
     private Autor autor;
-
+    
     @Deprecated
     public Livro() {
     }
@@ -57,6 +59,10 @@ public class Livro {
         this.dataLancamento = dataLancamento;
         this.categoria = categoria;
         this.autor = autor;
+    }
+    
+    public LivroDTO toDTO() {
+        return new LivroDTO(this.id, this.titulo);
     }
 
 }
