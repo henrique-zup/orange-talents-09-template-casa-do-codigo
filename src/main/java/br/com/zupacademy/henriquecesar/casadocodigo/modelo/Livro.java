@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import br.com.zupacademy.henriquecesar.casadocodigo.dto.LivroDTO;
-
 @Entity
 public class Livro {
     @Id
@@ -60,9 +58,45 @@ public class Livro {
         this.categoria = categoria;
         this.autor = autor;
     }
-    
-    public LivroDTO toDTO() {
-        return new LivroDTO(this.id, this.titulo);
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public Integer getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDateTime getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Autor getAutor() {
+        return autor;
     }
 
 }
