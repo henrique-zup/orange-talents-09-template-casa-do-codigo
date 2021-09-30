@@ -1,13 +1,15 @@
 package br.com.zupacademy.henriquecesar.casadocodigo.dto;
 
+import br.com.zupacademy.henriquecesar.casadocodigo.modelo.Livro;
+
 public class LivroDTO {
 
     private Long id;
     private String titulo;
 
-    public LivroDTO(Long id, String titulo) {
-        this.id = id;
-        this.titulo = titulo;
+    public LivroDTO(Livro livro) {
+        this.id = livro.getId();
+        this.titulo = livro.getTitulo();
     }
 
     public Long getId() {
