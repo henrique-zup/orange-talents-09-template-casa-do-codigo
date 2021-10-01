@@ -4,10 +4,12 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.zupacademy.henriquecesar.casadocodigo.form.validator.EstadoUnicoPais;
 import br.com.zupacademy.henriquecesar.casadocodigo.form.validator.ExisteId;
 import br.com.zupacademy.henriquecesar.casadocodigo.modelo.Estado;
 import br.com.zupacademy.henriquecesar.casadocodigo.modelo.Pais;
 
+@EstadoUnicoPais
 public class EstadoForm {
 
     @NotBlank
