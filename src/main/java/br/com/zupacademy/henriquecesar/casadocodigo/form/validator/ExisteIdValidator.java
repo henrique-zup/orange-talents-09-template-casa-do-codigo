@@ -1,6 +1,7 @@
 package br.com.zupacademy.henriquecesar.casadocodigo.form.validator;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,7 @@ public class ExisteIdValidator implements ConstraintValidator<ExisteId, Object> 
     
     Class<?> entityClass;
     String columnId;
+    boolean required;
     
     @PersistenceContext
     private EntityManager manager;
@@ -20,10 +22,15 @@ public class ExisteIdValidator implements ConstraintValidator<ExisteId, Object> 
     public void initialize(ExisteId constraintAnnotation) {
         entityClass = constraintAnnotation.entityClass();
         columnId = constraintAnnotation.columnId();
+        required = constraintAnnotation.required();
     }
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
+        if (Objects.isNull(value) && !required) {
+            return true;
+        }
+        
         String sql = "SELECT 1 FROM class WHERE columnId = :value"
                 .replace("class", entityClass.getName())
                 .replace("columnId", columnId);

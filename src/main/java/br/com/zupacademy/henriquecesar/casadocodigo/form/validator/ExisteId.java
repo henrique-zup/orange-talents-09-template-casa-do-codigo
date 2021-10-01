@@ -24,5 +24,7 @@ public @interface ExisteId {
     Class<?> entityClass();
     
     String columnId() default "id";
+    
+    boolean required() default true;
 
 }
